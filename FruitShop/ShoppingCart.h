@@ -11,9 +11,9 @@
 
 @interface ShoppingCart : NSObject
 
-@property (strong, nonatomic) NSArray<Fruit *> *items;
+@property (strong, nonatomic, readonly) NSMutableArray<Fruit *> *items;
 
--(instancetype)initWithItems: (NSArray<NSString *> *)items;
-- (double) checkout;
+-(instancetype)initWithItemCodes: (NSArray<NSString *> *)itemCodes;
+- (NSString *) checkout;
 
 @end

@@ -7,9 +7,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum : NSUInteger {
+    FruitTypeApple,
+    FruitTypeOrange,
+} FruitType;
+
 @interface Fruit : NSObject
 
 @property (nonatomic, readwrite) double price;
+@property (nonatomic, readonly) FruitType type;
 
 -(instancetype)initWithCode: (NSString *)code;
 

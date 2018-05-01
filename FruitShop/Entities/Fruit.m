@@ -7,11 +7,6 @@
 
 #import "Fruit.h"
 
-typedef enum : NSUInteger {
-    FruitTypeApple,
-    FruitTypeOrange,
-} FruitType;
-
 @interface Fruit ()
 
 @property (nonatomic, readwrite) FruitType type;
@@ -23,15 +18,33 @@ typedef enum : NSUInteger {
 -(instancetype)initWithCode: (NSString *)code {
     self = [super init];
     if (self) {
-        if ([code.lowercaseString isEqualToString:@"apple"]) {
-            self.type = FruitTypeApple;
-        } else if ([code.lowercaseString isEqualToString:@"apple"]) {
-            self.type = FruitTypeOrange;
+        if ([self isFruitApple:code]) {
+            [self initApple];
+        } else if ([self isFruitOrange:code]) {
+            [self initOrange];
         } else {
-            NSAssert(false, @"Invalid item");
+            NSAssert(false, @"Invalid Fruit type");
         }
     }
     return self;
+}
+
+- (BOOL) isFruitApple: (NSString *)code {
+    return [code.lowercaseString isEqualToString:@"apple"];
+}
+
+- (BOOL) isFruitOrange: (NSString *)code {
+    return [code.lowercaseString isEqualToString:@"orange"];
+}
+
+- (void) initApple {
+    self.type = FruitTypeApple;
+    self.price = 0.60;
+}
+
+- (void) initOrange {
+    self.type = FruitTypeOrange;
+    self.price = 0.25;
 }
 
 @end
