@@ -39,12 +39,20 @@
 
 - (void) initApple {
     self.type = FruitTypeApple;
-    self.price = 0.60;
+    self.price = [Fruit getApplePrice];
 }
 
 - (void) initOrange {
     self.type = FruitTypeOrange;
-    self.price = 0.25;
+    self.price = [Fruit getOrangePrice];
+}
+
++ (double) getApplePrice {
+    return 0.6;
+}
+
++ (double) getOrangePrice {
+    return 0.25;
 }
 
 @end

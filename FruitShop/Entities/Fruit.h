@@ -17,6 +17,9 @@ typedef enum : NSUInteger {
 @property (nonatomic, readwrite) double price;
 @property (nonatomic, readonly) FruitType type;
 
++ (double) getApplePrice;
++ (double) getOrangePrice;
+
 -(instancetype)initWithCode: (NSString *)code;
 
 @end
